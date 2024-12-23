@@ -1,5 +1,4 @@
 plugins {
-    id 'java-library'
 }
 
 repositories {
@@ -8,16 +7,8 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
-    testImplementation 'com.codeborne:selenide:7.6.1'
 }
 
 test {
     useJUnitPlatform()
-}
-test {
-    useJUnitPlatform {
-        if (project.hasProperty("includeTags")) {
-            includeTags(project.property("includeTags") as String)
-        }
-    }
 }

@@ -1,0 +1,9 @@
+{
+  "name": "John",
+  "age": 30,
+  "lastName": "Smith",
+  "phoneNumbers": [
+    {"type": "home", "number": "212-555-1234"},
+    {"type": "work", "number": "646-555-4567"}
+  ]
+}
