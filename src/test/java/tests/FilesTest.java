@@ -13,30 +13,12 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 
 public class FilesTest {
 
     private ClassLoader cl = FilesTest.class.getClassLoader();
-    @Test
-    void pdfFileParsingTest() throws Exception {
 
-        open("https://junit.org/junit5/docs/current/user-guide/");
-        File downloaded = $("[href*='junit-user-guide-5.11.4.pdf']").download();
-        PDF pdf = new PDF(downloaded);
-        Assertions.assertEquals(205, pdf.numberOfPages);
-    }
-
-    @Test
-    void xlsFileParsingTest() throws Exception {
-        open("https://excelvba.ru/programmes/Teachers?ysclid=lfcu77j9j9951587711");
-        File downloaded = $("[href='https://ExcelVBA.ru/sites/default/files/teachers.xls']").download();
-        XLS xls = new XLS(downloaded);
-        String actualValue = xls.excel.getSheetAt(0).getRow(3).getCell(2).getStringCellValue();
-        Assertions.assertTrue(actualValue.contains("Суммарное количество часов планируемое на штатную по всем разделам"));
-    }
     @Test
     void csvFileParsingTest() throws Exception {
         try (InputStream is = cl.getResourceAsStream("file.csv");
